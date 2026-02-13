@@ -1,0 +1,10 @@
+name: .NET CI Pipeline
+
+on: [push]
+
+jobs:
+  hello-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Hello
+      run: echo "Hello TAP, il workflow funziona!"
