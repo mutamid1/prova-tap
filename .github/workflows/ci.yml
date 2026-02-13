@@ -1,10 +1,17 @@
-name: .NET CI Pipeline
+name: Test Checkout
 
 on: [push, workflow_dispatch]
 
 jobs:
-  hello-job:
+  verifica-file:
     runs-on: ubuntu-latest
     steps:
-    - name: Hello
-      run: echo "Hello TAP" && ls -lR
+      # PASSO 1: Scarichiamo il codice
+      - name: Scarico il codice (Checkout)
+        uses: actions/checkout@v4
+
+      # PASSO 2: Verifichiamo che ci sia
+      - name: Lista dei file
+        run: |
+          echo "Ecco cosa ho trovato nella cartella:"
+          ls -R
