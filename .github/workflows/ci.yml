@@ -1,9 +1,10 @@
-on:
-push:
-workflow_dispatch:
+name: .NET CI Pipeline
+
+on: [push, workflow_dispatch]
+
 jobs:
-hello-job:
-runs-on: ubuntu-latest
-steps:
-- name: Hello
-run: echo "Hello TAP" && ls -lR
+  hello-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Hello
+      run: echo "Hello TAP" && ls -lR
