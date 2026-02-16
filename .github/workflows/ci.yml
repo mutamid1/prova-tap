@@ -1,17 +1,12 @@
 name: Test Checkout
 
-on: [push, workflow_dispatch]
+on: [pull_request]
 
 jobs:
-  verifica-file:
+  build-container:
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/dotnet/sdk:9.0
     steps:
-      # PASSO 1: Scarichiamo il codice
-      - name: Scarico il codice (Checkout)
-        uses: actions/checkout@v4
-
-      # PASSO 2: Verifichiamo che ci sia
-      - name: Lista dei file
-        run: |
-          echo "Ecco cosa ho trovato nella cartella:"
-          ls -R
+      - uses: actions/checkout@v4
+      - run: dotnet test Calc.sln -c Release
