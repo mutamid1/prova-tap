@@ -16,7 +16,7 @@ public class Calculator
     }
     public int Div(int a, int b)
     {
-        return 123;
+        return a/b;
     }
    
 }
